@@ -2,15 +2,16 @@
 
 # Conversor de Arquivos
 
-Este é um conversor de arquivos simples que converte arquivos de texto (.txt) para PDF (.pdf) usando Python. Além disso, permite o download de vídeos/arquivos do Instagram, YouTube e TikTok em todas as resoluções possíveis.
+
+Este é um conversor de arquivos simples que converte arquivos de texto (.txt) para PDF (.pdf) usando Python. Além disso, permite o download de vídeos/arquivos do YouTube e TikTok em todas as resoluções possíveis. O download de vídeos do Instagram requer autenticação.
 
 ## Requisitos
 
 - Python 3.x
 - fpdf
-- pytube
-- instaloader
-- TikTokApi
+
+- yt-dlp
+- requests
 - PyInstaller (opcional, para criar o executável)
 
 ## Instalação
@@ -23,7 +24,8 @@ Este é um conversor de arquivos simples que converte arquivos de texto (.txt) p
 
 2. Instale as dependências:
     ```bash
-    pip install fpdf pytube instaloader TikTokApi
+
+    pip install fpdf yt-dlp requests
     ```
 
 ## Uso
@@ -43,23 +45,32 @@ python convert_all_txt_to_pdf.py /caminho/do/diretorio
 ```
 Substitua `/caminho/do/diretorio` pelo caminho do diretório contendo os arquivos de texto.
 
-Para baixar um vídeo do YouTube, execute o seguinte comando:
-```bash
-python download_youtube_video.py URL RESOLUCAO
-```
-Substitua `URL` pelo link do vídeo do YouTube e `RESOLUCAO` pela resolução desejada (por exemplo, `720p`).
 
-Para baixar um post do Instagram, execute o seguinte comando:
+Para baixar vídeos do YouTube, execute o seguinte comando:
 ```bash
-python download_instagram_post.py URL
-```
-Substitua `URL` pelo link do post do Instagram.
 
-Para baixar um vídeo do TikTok, execute o seguinte comando:
-```bash
-python download_tiktok_video.py URL
+python youtube_downloader.py URL OUTPUT_DIR
 ```
-Substitua `URL` pelo link do vídeo do TikTok.
+
+Substitua `URL` pelo link do vídeo do YouTube e `OUTPUT_DIR` pelo diretório onde deseja salvar o vídeo.
+
+
+Para baixar vídeos do Instagram, forneça cookies ou credenciais de login. Execute o seguinte comando:
+```bash
+
+python instagram_downloader.py
+```
+
+O download de vídeos do Instagram requer autenticação. Por favor, forneça cookies ou credenciais de login.
+
+
+Para baixar vídeos do TikTok, execute o seguinte comando:
+```bash
+
+python tiktok_downloader.py URL OUTPUT_DIR
+```
+
+Substitua `URL` pelo link do vídeo do TikTok e `OUTPUT_DIR` pelo diretório onde deseja salvar o vídeo.
 
 ### Usar os Arquivos de Configuração
 
