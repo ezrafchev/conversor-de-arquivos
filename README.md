@@ -28,37 +28,67 @@ Este é um conversor de arquivos simples que converte arquivos de texto (.txt) p
 
 ## Uso
 
+
 ### Executar o script Python
 
 Para converter um arquivo de texto para PDF, execute o seguinte comando:
 ```bash
-python converter.py --convert input.txt output.pdf
+python convert_txt_to_pdf.py input.txt output.pdf
 ```
 Substitua `input.txt` pelo caminho do seu arquivo de texto e `output.pdf` pelo nome desejado para o arquivo PDF de saída.
 
 Para converter todos os arquivos de texto em um diretório para PDF, execute o seguinte comando:
 ```bash
-python converter.py --convert-all /caminho/do/diretorio
+python convert_all_txt_to_pdf.py /caminho/do/diretorio
 ```
 Substitua `/caminho/do/diretorio` pelo caminho do diretório contendo os arquivos de texto.
 
 Para baixar um vídeo do YouTube, execute o seguinte comando:
 ```bash
-python converter.py --download-youtube URL RESOLUCAO
+python download_youtube_video.py URL RESOLUCAO
 ```
 Substitua `URL` pelo link do vídeo do YouTube e `RESOLUCAO` pela resolução desejada (por exemplo, `720p`).
 
 Para baixar um post do Instagram, execute o seguinte comando:
 ```bash
-python converter.py --download-instagram URL
+python download_instagram_post.py URL
 ```
 Substitua `URL` pelo link do post do Instagram.
 
 Para baixar um vídeo do TikTok, execute o seguinte comando:
 ```bash
-python converter.py --download-tiktok URL
+python download_tiktok_video.py URL
 ```
 Substitua `URL` pelo link do vídeo do TikTok.
+
+### Usar os Arquivos de Configuração
+
+Você também pode usar os arquivos de configuração pré-configurados para executar as funções. Basta colar os novos parâmetros nos arquivos de configuração e executar os comandos abaixo:
+
+Para converter um arquivo de texto para PDF:
+```bash
+python convert_txt_to_pdf.py $(cat config_convert_txt_to_pdf.txt)
+```
+
+Para converter todos os arquivos de texto em um diretório para PDF:
+```bash
+python convert_all_txt_to_pdf.py $(cat config_convert_all_txt_to_pdf.txt)
+```
+
+Para baixar um vídeo do YouTube:
+```bash
+python download_youtube_video.py $(cat config_download_youtube_video.txt)
+```
+
+Para baixar um post do Instagram:
+```bash
+python download_instagram_post.py $(cat config_download_instagram_post.txt)
+```
+
+Para baixar um vídeo do TikTok:
+```bash
+python download_tiktok_video.py $(cat config_download_tiktok_video.txt)
+```
 
 ### Criar o Executável (Opcional)
 
