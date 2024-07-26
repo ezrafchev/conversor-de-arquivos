@@ -1,12 +1,16 @@
 
+
 # Conversor de Arquivos
 
-Este é um conversor de arquivos simples que converte arquivos de texto (.txt) para PDF (.pdf) usando Python.
+Este é um conversor de arquivos simples que converte arquivos de texto (.txt) para PDF (.pdf) usando Python. Além disso, permite o download de vídeos/arquivos do Instagram, YouTube e TikTok em todas as resoluções possíveis.
 
 ## Requisitos
 
 - Python 3.x
 - fpdf
+- pytube
+- instaloader
+- TikTokApi
 - PyInstaller (opcional, para criar o executável)
 
 ## Instalação
@@ -19,7 +23,7 @@ Este é um conversor de arquivos simples que converte arquivos de texto (.txt) p
 
 2. Instale as dependências:
     ```bash
-    pip install fpdf
+    pip install fpdf pytube instaloader TikTokApi
     ```
 
 ## Uso
@@ -28,9 +32,33 @@ Este é um conversor de arquivos simples que converte arquivos de texto (.txt) p
 
 Para converter um arquivo de texto para PDF, execute o seguinte comando:
 ```bash
-python converter.py input.txt output.pdf
+python converter.py --convert input.txt output.pdf
 ```
 Substitua `input.txt` pelo caminho do seu arquivo de texto e `output.pdf` pelo nome desejado para o arquivo PDF de saída.
+
+Para converter todos os arquivos de texto em um diretório para PDF, execute o seguinte comando:
+```bash
+python converter.py --convert-all /caminho/do/diretorio
+```
+Substitua `/caminho/do/diretorio` pelo caminho do diretório contendo os arquivos de texto.
+
+Para baixar um vídeo do YouTube, execute o seguinte comando:
+```bash
+python converter.py --download-youtube URL RESOLUCAO
+```
+Substitua `URL` pelo link do vídeo do YouTube e `RESOLUCAO` pela resolução desejada (por exemplo, `720p`).
+
+Para baixar um post do Instagram, execute o seguinte comando:
+```bash
+python converter.py --download-instagram URL
+```
+Substitua `URL` pelo link do post do Instagram.
+
+Para baixar um vídeo do TikTok, execute o seguinte comando:
+```bash
+python converter.py --download-tiktok URL
+```
+Substitua `URL` pelo link do vídeo do TikTok.
 
 ### Criar o Executável (Opcional)
 
@@ -52,7 +80,7 @@ O executável será gerado no diretório `dist`.
 
 Para converter um arquivo de texto para PDF usando o executável, execute o seguinte comando:
 ```bash
-./dist/converter input.txt output.pdf
+./dist/converter --convert input.txt output.pdf
 ```
 Substitua `input.txt` pelo caminho do seu arquivo de texto e `output.pdf` pelo nome desejado para o arquivo PDF de saída.
 
